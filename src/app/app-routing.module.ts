@@ -1,6 +1,9 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
+import { EagerlyLoadedPageModule } from './eagerly-loaded/eagerly-loaded.module';
+import { EagerlyLoadedPage } from './eagerly-loaded/eagerly-loaded.page';
+
 const routes: Routes = [
   {
     path: '',
@@ -12,13 +15,20 @@ const routes: Routes = [
     loadChildren: './home/home.module#HomePageModule'
   },
   {
-    path: 'list',
-    loadChildren: './list/list.module#ListPageModule'
+    path: 'eagerly-loaded',
+    component: EagerlyLoadedPage
+  },
+  {
+    path: 'lazy-loaded',
+    loadChildren: './lazy-loaded/lazy-loaded.module#LazyLoadedPageModule'
   }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [
+    RouterModule.forRoot(routes),
+    EagerlyLoadedPageModule
+  ],
   exports: [RouterModule]
 })
 export class AppRoutingModule {}
