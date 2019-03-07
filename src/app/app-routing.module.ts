@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { PreloadAllModules } from '@angular/router';
 
 import { EagerlyLoadedPageModule } from './eagerly-loaded/eagerly-loaded.module';
 import { EagerlyLoadedPage } from './eagerly-loaded/eagerly-loaded.page';
@@ -26,7 +27,10 @@ const routes: Routes = [
 
 @NgModule({
   imports: [
-    RouterModule.forRoot(routes),
+    RouterModule.forRoot(routes,
+    {
+      preloadingStrategy: PreloadAllModules
+    }),
     EagerlyLoadedPageModule
   ],
   exports: [RouterModule]
