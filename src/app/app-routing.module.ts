@@ -55,6 +55,14 @@ const routes: Routes = [
     data: {
       name: 'ProductDetails'
     }
+  },
+  {
+    path: 'can-activate',
+    loadChildren: './can-activate/can-activate.module#CanActivatePageModule'
+  },
+  {
+    path: 'redirect-to',
+    loadChildren: './redirect-to/redirect-to.module#RedirectToPageModule'
   }
 ];
 

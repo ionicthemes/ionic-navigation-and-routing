@@ -39,6 +39,11 @@ export class AppComponent {
       title: 'Listing',
       url: '/listing',
       icon: 'list'
+    },
+    {
+      title: 'Can Activate',
+      url: '/can-activate',
+      icon: 'list'
     }
   ];
 
