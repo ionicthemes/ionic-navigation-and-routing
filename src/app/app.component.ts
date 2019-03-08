@@ -24,6 +24,21 @@ export class AppComponent {
       title: 'Lazy Loaded',
       url: '/lazy-loaded',
       icon: 'list'
+    },
+    {
+      title: 'Pre Loaded',
+      url: '/pre-loaded',
+      icon: 'list'
+    },
+    {
+      title: 'Pre Loaded (with delay)',
+      url: '/pre-loaded-with-delay',
+      icon: 'list'
+    },
+    {
+      title: 'Listing',
+      url: '/listing',
+      icon: 'list'
     }
   ];
 

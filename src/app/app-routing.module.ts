@@ -2,7 +2,8 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 // import { PreloadAllModules } from '@angular/router';
-import { FlagPreloadingStrategy } from './utils/flag-preloading-strategy';
+// import { FlagPreloadingStrategy } from './utils/flag-preloading-strategy';
+import { DecorativePreloadingStrategy } from './utils/decorative-preloading-strategy';
 
 import { EagerlyLoadedPageModule } from './eagerly-loaded/eagerly-loaded.module';
 import { EagerlyLoadedPage } from './eagerly-loaded/eagerly-loaded.page';
@@ -40,6 +41,20 @@ const routes: Routes = [
       preload: true,
       delay: true
     }
+  },
+  {
+    path: 'listing',
+    loadChildren: './listing/listing.module#ListingPageModule',
+    data: {
+      name: 'ProductsListing'
+    }
+  },
+  {
+    path: 'details',
+    loadChildren: './details/details.module#DetailsPageModule',
+    data: {
+      name: 'ProductDetails'
+    }
   }
 ];
 
@@ -48,11 +63,15 @@ const routes: Routes = [
     RouterModule.forRoot(routes,
     {
       // preloadingStrategy: PreloadAllModules
-      preloadingStrategy: FlagPreloadingStrategy
+      // preloadingStrategy: FlagPreloadingStrategy
+      preloadingStrategy: DecorativePreloadingStrategy
     }),
     EagerlyLoadedPageModule
   ],
   exports: [RouterModule],
-  providers: [FlagPreloadingStrategy]
+  providers: [
+    // FlagPreloadingStrategy
+    DecorativePreloadingStrategy
+  ]
 })
 export class AppRoutingModule {}
