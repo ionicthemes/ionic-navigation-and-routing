@@ -63,6 +63,10 @@ const routes: Routes = [
   {
     path: 'redirect-to',
     loadChildren: './redirect-to/redirect-to.module#RedirectToPageModule'
+  },
+  {
+    path: 'can-deactivate',
+    loadChildren: './can-deactivate/can-deactivate.module#CanDeactivatePageModule'
   }
 ];
 
