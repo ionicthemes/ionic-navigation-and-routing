@@ -8,6 +8,8 @@ import { DecorativePreloadingStrategy } from './utils/decorative-preloading-stra
 import { EagerlyLoadedPageModule } from './eagerly-loaded/eagerly-loaded.module';
 import { EagerlyLoadedPage } from './eagerly-loaded/eagerly-loaded.page';
 
+import { CanLoadGuard } from './can-load/can-load.guard';
+
 const routes: Routes = [
   {
     path: '',
@@ -67,6 +69,11 @@ const routes: Routes = [
   {
     path: 'can-deactivate',
     loadChildren: './can-deactivate/can-deactivate.module#CanDeactivatePageModule'
+  },
+  {
+    path: 'can-load',
+    loadChildren: './can-load/can-load.module#CanLoadPageModule',
+    canLoad: [CanLoadGuard]
   }
 ];
 
@@ -83,7 +90,8 @@ const routes: Routes = [
   exports: [RouterModule],
   providers: [
     // FlagPreloadingStrategy
-    DecorativePreloadingStrategy
+    DecorativePreloadingStrategy,
+    CanLoadGuard
   ]
 })
 export class AppRoutingModule {}

@@ -49,6 +49,11 @@ export class AppComponent {
       title: 'Can Deactivate',
       url: '/can-deactivate',
       icon: 'list'
+    },
+    {
+      title: 'Can Load',
+      url: '/can-load',
+      icon: 'list'
     }
   ];
 
