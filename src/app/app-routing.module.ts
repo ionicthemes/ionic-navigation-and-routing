@@ -74,6 +74,14 @@ const routes: Routes = [
     path: 'can-load',
     loadChildren: './can-load/can-load.module#CanLoadPageModule',
     canLoad: [CanLoadGuard]
+  },
+  {
+    path: 'blocking-resolver',
+    loadChildren: './blocking-resolver/blocking-resolver.module#BlockingResolverPageModule'
+  },
+  {
+    path: 'non-blocking-resolver',
+    loadChildren: './non-blocking-resolver/non-blocking-resolver.module#NonBlockingResolverPageModule'
   }
 ];
 

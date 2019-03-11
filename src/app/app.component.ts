@@ -54,6 +54,16 @@ export class AppComponent {
       title: 'Can Load',
       url: '/can-load',
       icon: 'list'
+    },
+    {
+      title: 'Blocking Resolver',
+      url: '/blocking-resolver',
+      icon: 'list'
+    },
+    {
+      title: 'Non Blocking Resolver',
+      url: '/non-blocking-resolver',
+      icon: 'list'
     }
   ];
 
