@@ -20,6 +20,7 @@ const routes: Routes = [
     path: 'home',
     loadChildren: './home/home.module#HomePageModule'
   },
+  // Loading modules
   {
     path: 'eagerly-loaded',
     component: EagerlyLoadedPage
@@ -58,6 +59,7 @@ const routes: Routes = [
       name: 'ProductDetails'
     }
   },
+  // Guards
   {
     path: 'can-activate',
     loadChildren: './can-activate/can-activate.module#CanActivatePageModule'
@@ -75,6 +77,7 @@ const routes: Routes = [
     loadChildren: './can-load/can-load.module#CanLoadPageModule',
     canLoad: [CanLoadGuard]
   },
+  // Resolvers
   {
     path: 'blocking-resolver',
     loadChildren: './blocking-resolver/blocking-resolver.module#BlockingResolverPageModule'
@@ -82,6 +85,10 @@ const routes: Routes = [
   {
     path: 'non-blocking-resolver',
     loadChildren: './non-blocking-resolver/non-blocking-resolver.module#NonBlockingResolverPageModule'
+  },
+  {
+    path: 'progressive-shell-resolver',
+    loadChildren: './progressive-shell-resolver/progressive-shell-resolver.module#ProgressiveShellResolverPageModule'
   }
 ];
 

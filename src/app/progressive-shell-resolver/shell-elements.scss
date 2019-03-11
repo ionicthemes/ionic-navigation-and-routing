@@ -1,0 +1,128 @@
+.image-shell {
+  padding-bottom: 100%;
+  height: 0px;
+  position: relative;
+
+  // The animation that goes beneath the masks
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background:
+      linear-gradient(to right, #EEE 8%, #DDD 18%, #EEE 33%);
+    background-size: 800px 104px;
+    animation: animateBackground 2s ease-in-out infinite;
+  }
+
+  & > img {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+
+    &[src=""],
+    &[src="null"] {
+      display: none;
+    }
+  }
+}
+
+.text-shell {
+  position: relative;
+
+  // The animation that goes beneath the masks
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background:
+      linear-gradient(to right, #EEE 8%, #DDD 18%, #EEE 33%);
+    background-size: 800px 104px;
+    animation: animateBackground 2s ease-in-out infinite;
+  }
+
+  &.text-loaded {
+    &::before,
+    &::after {
+      background: none !important;
+      animation: 0 !important;
+    }
+  }
+}
+
+h3.text-shell {
+  // The masks
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-repeat: no-repeat;
+    background-image:
+      /* First line: 95% width grey, 5% white mask */
+      linear-gradient(to right, transparent 95% , #FFF 95%);
+
+    background-size:
+      /* First line: 100% width, 16px height */
+      100% 22px;
+
+    background-position:
+      /* First line: begins at left: 0, top: 0 */
+      0 0px;
+  }
+}
+
+p.text-shell {
+  // The masks
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-repeat: no-repeat;
+    background-image:
+      /* First line: 95% width grey, 5% white mask */
+      linear-gradient(to right, transparent 95% , #FFF 95%),
+      /* Separation between lines (a full width white line mask) */
+      linear-gradient(to right, #FFF 100%, #FFF 100%),
+      /* Second line: 65% width grey, 35% white mask */
+      linear-gradient(to right, transparent 65% , #FFF 65%);
+
+    background-size:
+      /* First line: 100% width, 16px height */
+      100% 16px,
+      /* Separation between lines: a full width, 3px height line */
+      100% 3px,
+      /* Second line: 100% width, 16px height */
+      100% 16px;
+
+    background-position:
+      /* First line: begins at left: 0, top: 0 */
+      0 0px,
+      /* Separation between lines: begins at left: 0, top: 16px (right below the first line) */
+      0 16px,
+      /* Second line: begins at left: 0, top: (16px + 3px) (right below the separation between lines) */
+      0 19px;
+  }
+}
+
+@keyframes animateBackground {
+  0%{
+    background-position: -468px 0
+  }
+
+  100%{
+    background-position: 468px 0
+  }
+}

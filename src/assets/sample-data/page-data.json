@@ -1,5 +1,24 @@
 {
-  "image": "https://lorempixel.com/200/200/people/1/",
-  "title": "Sample Title",
-  "description": "Sample Description"
+  "items": [
+    {
+      "image": "https://lorempixel.com/200/200/people/1/",
+      "title": "Sample Title",
+      "description": "Sample Description"
+    },
+    {
+      "image": "https://lorempixel.com/200/200/people/2/",
+      "title": "Sample Title",
+      "description": "Sample Description"
+    },
+    {
+      "image": "https://lorempixel.com/200/200/people/3/",
+      "title": "Sample Title",
+      "description": "Sample Description"
+    },
+    {
+      "image": "https://lorempixel.com/200/200/people/4/",
+      "title": "Sample Title",
+      "description": "Sample Description"
+    }
+  ]
 }

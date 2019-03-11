@@ -64,6 +64,11 @@ export class AppComponent {
       title: 'Non Blocking Resolver',
       url: '/non-blocking-resolver',
       icon: 'list'
+    },
+    {
+      title: 'Progressive Shell Resolver',
+      url: '/progressive-shell-resolver',
+      icon: 'list'
     }
   ];
 

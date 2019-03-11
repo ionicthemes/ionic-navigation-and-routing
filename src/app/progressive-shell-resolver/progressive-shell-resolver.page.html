@@ -3,23 +3,22 @@
     <ion-buttons slot="start">
       <ion-back-button defaultHref="home"></ion-back-button>
     </ion-buttons>
-    <ion-title>blocking-resolver</ion-title>
+    <ion-title>progressive-shell-resolver</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
-  <p>
-    Notice how the UX degrades when using <b>Blocking</b> Route Resolvers in Angular
-  </p>
   <ion-row *ngFor="let item of routeResolveData?.items" style="background-color: #FFF; padding: 10px;">
     <ion-col size="4">
-      <img [src]="item?.image" alt="Sample Image" style="width: 100%; height: 100%;"/>
+      <div class="image-shell">
+        <img [src]="item?.image" alt="Sample Image" style="width: 100%; height: 100%;"/>
+      </div>
     </ion-col>
     <ion-col size="8">
-      <h3 style="margin-top: 0px;">
+      <h3 class="text-shell" style="margin-top: 0px; min-height: 22px;" [ngClass]="{'text-loaded': item?.title}">
         {{ item?.title }}
       </h3>
-      <p>
+      <p class="text-shell" style="min-height: 35px;" [ngClass]="{'text-loaded': item?.description}">
         {{ item?.description }}
       </p>
     </ion-col>
