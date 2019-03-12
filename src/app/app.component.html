@@ -8,9 +8,38 @@
       </ion-header>
       <ion-content>
         <ion-list>
-          <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages">
-            <ion-item [routerDirection]="'root'" [routerLink]="[p.url]">
-              <ion-icon slot="start" [name]="p.icon"></ion-icon>
+          <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages; let i = index">
+            <ion-item [routerLink]="p.url">
+              <ion-label>
+                {{p.title}}
+              </ion-label>
+            </ion-item>
+          </ion-menu-toggle>
+        </ion-list>
+        <ion-list>
+          <ion-list-header>Module Loading Startegies</ion-list-header>
+          <ion-menu-toggle auto-hide="false" *ngFor="let p of moduleLoadingPages; let i = index">
+            <ion-item [routerLink]="p.url">
+              <ion-label>
+                {{p.title}}
+              </ion-label>
+            </ion-item>
+          </ion-menu-toggle>
+        </ion-list>
+        <ion-list>
+          <ion-list-header>Route Guards</ion-list-header>
+          <ion-menu-toggle auto-hide="false" *ngFor="let p of routeGuardsPages; let i = index">
+            <ion-item [routerLink]="p.url">
+              <ion-label>
+                {{p.title}}
+              </ion-label>
+            </ion-item>
+          </ion-menu-toggle>
+        </ion-list>
+        <ion-list>
+          <ion-list-header>Route Resolves</ion-list-header>
+          <ion-menu-toggle auto-hide="false" *ngFor="let p of routeResolversPages; let i = index">
+            <ion-item [routerLink]="p.url">
               <ion-label>
                 {{p.title}}
               </ion-label>
@@ -19,6 +48,7 @@
         </ion-list>
       </ion-content>
     </ion-menu>
+
     <ion-router-outlet main></ion-router-outlet>
   </ion-split-pane>
 </ion-app>

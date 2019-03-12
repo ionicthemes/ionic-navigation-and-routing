@@ -2,3 +2,17 @@
   max-height: 35vh;
   overflow: hidden;
 }
+
+.demo-section {
+  margin: 24px 16px;
+
+  p {
+    color: #666;
+    line-height: 1.4;
+    font-size: 14px;
+  }
+
+  code {
+    color: #F92672;
+  }
+}

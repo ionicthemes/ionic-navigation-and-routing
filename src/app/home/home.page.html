@@ -13,11 +13,175 @@
   <ion-card class="welcome-card">
     <ion-img src="/assets/shapes.svg"></ion-img>
     <ion-card-header>
-      <ion-card-subtitle>Get Started</ion-card-subtitle>
-      <ion-card-title>Welcome to Ionic</ion-card-title>
+      <ion-card-subtitle>Ionic 4</ion-card-subtitle>
+      <ion-card-title>Navigation in Depth</ion-card-title>
     </ion-card-header>
     <ion-card-content>
-      <p>Now that your app has been created, you'll want to start building out features and components. Check out some of the resources below for next steps.</p>
+      <p>Discover all the possibilities the <b>new Ionic 4 Navigation</b> brings alongside some usability tricks we can add to our Ionic apps to make them even better.</p>
     </ion-card-content>
   </ion-card>
+  <ion-item-divider sticky="true">
+    <ion-label>Module Loading Startegies</ion-label>
+  </ion-item-divider>
+  <section class="demo-section">
+    <h5>Eagerly Loading Modules</h5>
+    <p>
+      Eagerly loaded modules are loaded before application start, right on the first hit.
+    </p>
+    <p>
+      Although in my opinion this approach is not recommended, it may be a viable option for small applications because at the first hit of the application all the modules are loaded and all the required dependencies are resolved.
+    </p>
+    <p>
+      <ion-button expand="block" [routerLink]="['/eagerly-loaded']">Eagerly Loaded Module</ion-button>
+    </p>
+  </section>
+  <section class="demo-section">
+    <h5>Lazy Loading Modules</h5>
+    <p>
+      Instead of loading every module at once when the app starts, a solution to this problem are asynchronous routes which load feature modules lazily.
+    </p>
+    <p>
+      When the router navigates to a lazy loadable route it dynamically loads the module assigned to that route.
+    </p>
+    <p>
+      <ion-button expand="block" [routerLink]="['/lazy-loaded']">Lazy Loaded Module</ion-button>
+    </p>
+  </section>
+  <section class="demo-section">
+    <h5>Pre Loading Modules</h5>
+    <p>
+      This may seem just like lazy loading, not quite, it's something in between.
+    </p>
+    <p>
+      By implementing preloading strategies, you achieve async preloading without relying on the user to click a link.
+    </p>
+    <b>PreloadAllModules Strategy</b>
+    <p>
+      All modules configured using the <code>loadChildren</code> property will be preloaded.
+    </p>
+    <p>
+      <b>Note:</b> This strategy comes out of the box with Angular
+    </p>
+    <b>FlagPreloading Strategy</b>
+    <p>
+      This custom preloading strategy, only preloads routes whose <code>data.preload</code> flag is set to true.
+    </p>
+    <p>
+      <ion-button expand="block" [routerLink]="['/pre-loaded']">Preload (with flag)</ion-button>
+    </p>
+    <b>Delayed FlagPreloading Strategy</b>
+    <p>
+      Went a step further and added a delay option.
+    </p>
+    <p>
+      When configuring your routes, if you set the <code>delay</code> property to <code>false</code> then the module will be preloaded right away.
+    </p>
+    <p>
+      If <code>delay</code> is set to <code>true</code>, then the module will be preloaded after an interval.
+    </p>
+    <p>
+      <ion-button expand="block" [routerLink]="['/pre-loaded-with-delay']">Delayed Preload (with flag)</ion-button>
+    </p>
+    <b>Preloading using Decorators</b>
+    <p>
+      Preload page modules using custom Angular decorator that can be added to pages from where we want to preload possible upcoming pages.
+    </p>
+    <p>
+      <ion-button expand="block" [routerLink]="['/listing']">Preload (using Decorators)</ion-button>
+    </p>
+  </section>
+
+  <ion-item-divider sticky="true">
+    <ion-label>Route Guards</ion-label>
+  </ion-item-divider>
+  <section class="demo-section">
+    <h5>CanActivate</h5>
+    <p>
+      These guards are used to mediate navigation to a route.
+    </p>
+    <p>
+      For example, you could allow access only to authenticated users or users with a specific role.
+    </p>
+    <p>
+      <b>Note:</b> In this example we deny the activation of the route and redirect the user to another page.
+    </p>
+    <p>
+      <ion-button expand="block" [routerLink]="['/can-activate']">Can Activate Guard</ion-button>
+    </p>
+  </section>
+  <section class="demo-section">
+    <h5>CanDeactivate</h5>
+    <p>
+      Use these guards to decide if a route can be deactivated.
+    </p>
+    <p>
+      For example add a security check to verify whether a user wants to leave a certain route if it has unsaved changes.
+    </p>
+    <p>
+      <ion-button expand="block" [routerLink]="['/can-deactivate']">Can Deactivate Guard</ion-button>
+    </p>
+  </section>
+  <section class="demo-section">
+    <h5>CanLoad</h5>
+    <p>
+      This guards are slightly different from the <code>CanActivate</code> guards in that they prevent the loading of the module all together.
+    </p>
+    <p>
+      Although the usability looks the same to the user, using <code>CanActivate</code> the router is still loading the feature area you are protecting even if the user can't visit any of its components.
+    </p>
+    <p>
+      Ideally, you would only load the feature area if the user is authorized.
+    </p>
+    <p>
+      <ion-button expand="block" [routerLink]="['/can-load']">Can Load Guard</ion-button>
+    </p>
+  </section>
+
+  <ion-item-divider sticky="true">
+    <ion-label>Route Resolves</ion-label>
+  </ion-item-divider>
+  <section class="demo-section">
+    <p>
+      Angular Route Resolves are a special kind of route guards. They enable us to pre-fetch data from the server before navigating to a route.
+    </p>
+  </section>
+  <section class="demo-section">
+    <h5>Blocking Resolver</h5>
+    <p>
+      By design, Angular Route Resolvers won't transition to the page until the resolved <code>Observable</code> completes.
+    </p>
+    <p>
+      <b>Use case:</b> Let's suppose the backend is slow and takes 5 seconds to fetch data and return it to the client. The expected behavior for that scenario is that the page transition will be blocked for 5 seconds until the server sends data back to the client.
+    </p>
+    <p>
+      A minimal improvement would be to show a loader while the resolved <code>Observable</code> completes.
+    </p>
+    <p>
+      <ion-button expand="block" [routerLink]="['/blocking-resolver']">Blocking Resolver</ion-button>
+    </p>
+  </section>
+  <section class="demo-section">
+    <h5>Non Blocking Resolver</h5>
+    <p>
+      You can avoid waiting for the <code>Observable</code> to complete and have instant page transitions.
+    </p>
+    <p>
+      The trade-off of this approach is that the waiting time gets passed to the page component you are navigating to.
+    </p>
+    <p>
+      <ion-button expand="block" [routerLink]="['/non-blocking-resolver']">Non Blocking Resolver</ion-button>
+    </p>
+    <p>
+      This also means that you will be responsible for unhandled errors that may cause navigating to unavailable pages.
+    </p>
+  </section>
+  <section class="demo-section">
+    <h5>Progressive Shell Resolver</h5>
+    <p>
+      By showing an app shell layout while loading data, we fix the waiting time issue caused when using non-blocking resolvers.
+    </p>
+    <p>
+      <ion-button expand="block" [routerLink]="['/progressive-shell-resolver']">Shell Resolver</ion-button>
+    </p>
+  </section>
 </ion-content>
