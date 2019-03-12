@@ -7,6 +7,13 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content padding>
-  <a [routerDirection]="'root'" [routerLink]="'/details'">Product Details</a>
+<ion-content>
+  <section class="demo-section">
+    <p>
+      Using a custom class decorator we can preload the <code>ProductDetails</code> page module once this page component gets initialized.
+    </p>
+    <p>
+      <ion-button expand="block" [routerDirection]="'root'" [routerLink]="'/details'">Product Details</ion-button>
+    </p>
+  </section>
 </ion-content>

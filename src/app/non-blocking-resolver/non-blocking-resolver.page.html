@@ -7,12 +7,17 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content>
+  <section class="demo-section">
+    <p>
+      <b>Non Blocking</b> Route Resolvers provide a better UX. Still the waiting time gets passed to the page component.
+    </p>
+  </section>
   <ng-container *ngIf="!routeResolveData">
     <div style="margin: 20px 40px; text-align: center;">
       <ion-spinner></ion-spinner>
       <p>
-        <b>You can show a loading indicator while fetching data from the backend</b>
+        You can show a loading indicator while fetching data from the backend.
       </p>
     </div>
   </ng-container>

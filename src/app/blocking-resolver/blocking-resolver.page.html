@@ -7,10 +7,12 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content padding>
-  <p>
-    Notice how the UX degrades when using <b>Blocking</b> Route Resolvers in Angular
-  </p>
+<ion-content>
+  <section class="demo-section">
+    <p>
+      Notice how the UX degrades when using <b>Blocking</b> Route Resolvers.
+    </p>
+  </section>
   <ion-row *ngFor="let item of routeResolveData?.items" style="background-color: #FFF; padding: 10px;">
     <ion-col size="4">
       <img [src]="item?.image" alt="Sample Image" style="width: 100%; height: 100%;"/>

@@ -9,3 +9,18 @@
 @import '~@ionic/angular/css/text-alignment.css';
 @import '~@ionic/angular/css/text-transformation.css';
 @import '~@ionic/angular/css/flex-utils.css';
+
+
+.demo-section {
+  margin: 24px 16px;
+
+  p {
+    color: #666;
+    line-height: 1.4;
+    font-size: 14px;
+  }
+
+  code {
+    color: #F92672;
+  }
+}
