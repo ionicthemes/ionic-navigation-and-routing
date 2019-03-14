@@ -8,10 +8,10 @@ export class FlagPreloadingStrategy implements PreloadingStrategy {
     const loadRoute: Function = (delay) => {
       // Check if we want to load it right away or with a delay
       if (delay) {
-        // emit 0 after 5 seconds then complete
+        // emit a value after 5 seconds then complete
         return timer(5000)
         .pipe(
-          // Merge the 0 emmited by the timer and emmit the load() function
+          // Merge the value emmited by the timer and then emmit the load() function
           mergeMap(_ => load())
         );
       } else {
