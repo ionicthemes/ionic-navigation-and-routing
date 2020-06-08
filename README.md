@@ -24,7 +24,7 @@ https://ionic-4-navigation.firebaseapp.com/home
 Find more Ionic tutorials and starter apps in https://ionicthemes.com
 
 ### Get a premium Ionic 5 Starter App
-Did you know that we recently released [Ionic 5 Full Starter App](https://ionicthemes.com/product/ionic4-full-starter-app-pro-version)? It's an ionic 5 starter app that you can use to jump start your Ionic app development and save yourself hundreds of hours of design and development.
+Did you know that we recently released [Ionic 5 Full Starter App](https://ionicthemes.com/product/ionic5-full-starter-app-pro-version)? It's an ionic 5 starter app that you can use to jump start your Ionic app development and save yourself hundreds of hours of design and development.
 
 It is also a PWA and can be used both on the web and on mobile devices as a native app. Try it on your phone to see how it works!
 
