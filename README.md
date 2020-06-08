@@ -17,8 +17,9 @@ npm install
 ```
 ionic serve
 ```
+
 ### Demo
-https://ionic-4-navigation.firebaseapp.com/home
+- [Online demo](https://ionic-4-navigation.firebaseapp.com/home)
 
 ### Free Ionic Examples
 Find more Ionic tutorials and starter apps in https://ionicthemes.com
