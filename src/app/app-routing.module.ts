@@ -1,8 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-// import { PreloadAllModules } from '@angular/router';
-// import { FlagPreloadingStrategy } from './utils/flag-preloading-strategy';
 import { DecorativePreloadingStrategy } from './utils/decorative-preloading-strategy';
 
 import { EagerlyLoadedPageModule } from './eagerly-loaded/eagerly-loaded.module';
@@ -18,7 +16,7 @@ const routes: Routes = [
   },
   {
     path: 'home',
-    loadChildren: './home/home.module#HomePageModule'
+    loadChildren: () => import('./home/home.module').then(m => m.HomePageModule)
   },
   // Loading modules
   {
@@ -27,11 +25,11 @@ const routes: Routes = [
   },
   {
     path: 'lazy-loaded',
-    loadChildren: './lazy-loaded/lazy-loaded.module#LazyLoadedPageModule'
+    loadChildren: () => import('./lazy-loaded/lazy-loaded.module').then(m => m.LazyLoadedPageModule)
   },
   {
     path: 'pre-loaded',
-    loadChildren: './pre-loaded/pre-loaded.module#PreLoadedPageModule',
+    loadChildren: () => import('./pre-loaded/pre-loaded.module').then(m => m.PreLoadedPageModule),
     data: {
       preload: true,
       delay: false
@@ -39,7 +37,7 @@ const routes: Routes = [
   },
   {
     path: 'pre-loaded-with-delay',
-    loadChildren: './pre-loaded-with-delay/pre-loaded-with-delay.module#PreLoadedWithDelayPageModule',
+    loadChildren: () => import('./pre-loaded-with-delay/pre-loaded-with-delay.module').then(m => m.PreLoadedWithDelayPageModule),
     data: {
       preload: true,
       delay: true
@@ -47,14 +45,14 @@ const routes: Routes = [
   },
   {
     path: 'listing',
-    loadChildren: './listing/listing.module#ListingPageModule',
+    loadChildren: () => import('./listing/listing.module').then(m => m.ListingPageModule),
     data: {
       name: 'ProductsListing'
     }
   },
   {
     path: 'details',
-    loadChildren: './details/details.module#DetailsPageModule',
+    loadChildren: () => import('./details/details.module').then(m => m.DetailsPageModule),
     data: {
       name: 'ProductDetails'
     }
@@ -62,33 +60,33 @@ const routes: Routes = [
   // Guards
   {
     path: 'can-activate',
-    loadChildren: './can-activate/can-activate.module#CanActivatePageModule'
+    loadChildren: () => import('./can-activate/can-activate.module').then(m => m.CanActivatePageModule)
   },
   {
     path: 'redirect-to',
-    loadChildren: './redirect-to/redirect-to.module#RedirectToPageModule'
+    loadChildren: () => import('./redirect-to/redirect-to.module').then(m => m.RedirectToPageModule)
   },
   {
     path: 'can-deactivate',
-    loadChildren: './can-deactivate/can-deactivate.module#CanDeactivatePageModule'
+    loadChildren: () => import('./can-deactivate/can-deactivate.module').then(m => m.CanDeactivatePageModule)
   },
   {
     path: 'can-load',
-    loadChildren: './can-load/can-load.module#CanLoadPageModule',
+    loadChildren: () => import('./can-load/can-load.module').then(m => m.CanLoadPageModule),
     canLoad: [CanLoadGuard]
   },
   // Resolvers
   {
     path: 'blocking-resolver',
-    loadChildren: './blocking-resolver/blocking-resolver.module#BlockingResolverPageModule'
+    loadChildren: () => import('./blocking-resolver/blocking-resolver.module').then(m => m.BlockingResolverPageModule)
   },
   {
     path: 'non-blocking-resolver',
-    loadChildren: './non-blocking-resolver/non-blocking-resolver.module#NonBlockingResolverPageModule'
+    loadChildren: () => import('./non-blocking-resolver/non-blocking-resolver.module').then(m => m.NonBlockingResolverPageModule)
   },
   {
     path: 'progressive-shell-resolver',
-    loadChildren: './progressive-shell-resolver/progressive-shell-resolver.module#ProgressiveShellResolverPageModule'
+    loadChildren: () => import('./progressive-shell-resolver/progressive-shell-resolver.module').then(m => m.ProgressiveShellResolverPageModule)
   }
 ];
 
